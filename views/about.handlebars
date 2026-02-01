@@ -1,0 +1,16 @@
+<h1 class="text-primary">About {{name}}  </h1>
+<hr>
+
+<h4>Name : {{name}}, Age: {{age}}</h4>
+
+<dl>
+    <dt>Address</dt>
+    <dd>{{address.street}}, {{address.city}}, {{address.state}} - {{address.zip}}</dd>
+</dl>
+
+<h4>Hobbies</h4>
+<ul>
+    {{#each hobbies}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>
