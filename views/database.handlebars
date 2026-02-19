@@ -1,0 +1,18 @@
+<h1>Database</h1>
+<p>{{message}}</p>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+    </tr>
+{{#each users}}
+    <tr>
+    <th>{{this.id}}</th>
+    <th>{{this.username}}</th>
+    <td>{{this.password}}</td>
+    </tr>
+{{/each}}
+</table>
+

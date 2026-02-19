@@ -1,5 +1,6 @@
 const {engine} = require('express-handlebars');
 const express = require('express')
+const connection = require("./db");
 
 const app = express();
 
@@ -39,6 +40,28 @@ app.get('/about', (req, res) => {
 
   res.render('about', info);
 });
+
+
+app.get('/database', async (req, res) => {
+
+  try{
+
+
+     const data = await connection.query('SELECT * FROM users');
+     console.log('Data fetched from database:', data);
+
+     res.render('database', {title: 'Database Page', users: data[0]});
+
+
+
+  }
+  catch (error) {
+    console.error('Error fetching data from database:', error);
+    res.status(500).send('Internal Server Error');
+  }
+
+});
+
 
 
 const PORT = 3000;
